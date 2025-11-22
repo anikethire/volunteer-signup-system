@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VolunteerHub | Make a Difference</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --accent: #f72585;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #4cc9f0;
+            --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Color Themes */
+        .theme-blue {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #3f37c9;
+            --accent: #f72585;
+        }
+
+        .theme-green {
+            --primary: #2ecc71;
+            --primary-dark: #27ae60;
+            --secondary: #219653;
+            --accent: #e74c3c;
+        }
+
+        .theme-purple {
+            --primary: #9b59b6;
+            --primary-dark: #8e44ad;
+            --secondary: #8e44ad;
+            --accent: #e67e22;
+        }
+
+        .theme-orange {
+            --primary: #e67e22;
+            --primary-dark: #d35400;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .theme-selector {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .theme-btn {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .theme-blue-btn { background: #4361ee; }
+        .theme-green-btn { background: #2ecc71; }
+        .theme-purple-btn { background: #9b59b6; }
+        .theme-orange-btn { background: #e67e22; }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 0 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            margin: 0.8rem auto;
+            border-radius: 2px;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            background: white;
+            border-radius: 50px;
+            padding: 0.5rem;
+            box-shadow: var(--card-shadow);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tab {
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-align: center;
+            flex: 1;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Events Grid */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .event-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .event-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .event-meta i {
+            margin-right: 0.3rem;
+        }
+
+        .event-body {
+            padding: 1.5rem;
+        }
+
+        .event-description {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+
+        .event-roles {
+            margin-top: 1rem;
+        }
+
+        .role-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 0.7rem;
+        }
+
+        .role-info {
+            flex: 1;
+        }
+
+        .role-name {
+            font-weight: 600;
+        }
+
+        .role-capacity {
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .capacity-bar {
+            height: 6px;
+            background-color: #e9ecef;
+            border-radius: 3px;
+            margin-top: 0.3rem;
+            overflow: hidden;
+        }
+
+        .capacity-fill {
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 3px;
+            transition: width 0.8s ease;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.5rem;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+
+        .filter-select {
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            background-color: white;
+            min-width: 150px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* Forms */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .role-entry {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+        }
+
+        .role-entry .form-control {
+            flex: 1;
+        }
+
+        .btn-danger {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #e11574;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* My Signups */
+        .signups-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .signup-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .signup-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup-info h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .signup-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .signup-meta i {
+            margin-right: 0.3rem;
+            color: var(--primary);
+        }
+
+        .signup-role {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .signup-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 3px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #495057;
+            color: #adb5bd;
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-3 { margin-bottom: 1.5rem; }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links, .auth-buttons {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tabs {
+                flex-direction: column;
+                border-radius: 16px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .signup-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .role-entry {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="theme-blue">
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-hands-helping"></i>
+                    <span>VolunteerHub</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="nav-link active" data-tab="events">Events</a>
+                    <a href="#" class="nav-link" data-tab="my-signups">My Signups</a>
+                    <a href="#" class="nav-link" data-tab="create-event">Create Event</a>
+                </div>
+                <div class="header-actions">
+                    <div class="theme-selector">
+                        <div class="theme-btn theme-blue-btn" data-theme="theme-blue"></div>
+                        <div class="theme-btn theme-green-btn" data-theme="theme-green"></div>
+                        <div class="theme-btn theme-purple-btn" data-theme="theme-purple"></div>
+                        <div class="theme-btn theme-orange-btn" data-theme="theme-orange"></div>
+                    </div>
+                    <div class="auth-buttons">
+                        <button id="login-btn" class="btn btn-outline">Login</button>
+                        <button id="register-btn" class="btn btn-primary">Register</button>
+                        <div id="user-profile" class="user-profile hidden">
+                            <img src="https://ui-avatars.com/api/?name=User&background=4361ee&color=fff" alt="User" class="user-avatar">
+                            <span id="username">User</span>
+                            <button id="logout-btn" class="btn btn-outline">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Make a Difference in Your Community</h1>
+                <p>Join thousands of volunteers making an impact through meaningful opportunities</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large" data-tab="events">
+                        <i class="fas fa-search"></i> Find Opportunities
+                    </button>
+                    <button class="btn btn-outline btn-large" data-tab="create-event">
+                        <i class="fas fa-plus"></i> Create Event
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h2 class="section-title">Volunteer Opportunities</h2>
+            
+            <!-- Tabs Navigation -->
+            <div class="tabs">
+                <div class="tab active" data-tab="events">Browse Events</div>
+                <div class="tab" data-tab="my-signups">My Signups</div>
+                <div class="tab" data-tab="create-event">Create Event</div>
+            </div>
+
+            <!-- Events Tab -->
+            <div id="events" class="tab-content active">
+                <div class="filters">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="event-search" placeholder="Search events...">
+                    </div>
+                    <select id="category-filter" class="filter-select">
+                        <option value="all">All Categories</option>
+                        <option value="education">Education</option>
+                        <option value="environment">Environment</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="community">Community</option>
+                    </select>
+                </div>
+                
+                <div id="events-container" class="events-grid">
+                    <!-- Events will be loaded here -->
+                </div>
+            </div>
+
+            <!-- My Signups Tab -->
+            <div id="my-signups" class="tab-content">
+                <div id="my-signups-container" class="signups-list">
+                    <!-- User's signups will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Create Event Tab -->
+            <div id="create-event" class="tab-content">
+                <div class="form-container">
+                    <form id="event-form">
+                        <div class="form-group">
+                            <label for="event-title">Event Title</label>
+                            <input type="text" id="event-title" class="form-control" placeholder="Enter event title" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="event-description">Description</label>
+                            <textarea id="event-description" class="form-control" placeholder="Describe the event and its impact" rows="4" required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="event-date">Date</label>
+                                <input type="date" id="event-date" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="event-time">Time</label>
+                                <input type="time" id="event-time" class="form-control" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="event-location">Location</label>
+                            <input type="text" id="event-location" class="form-control" placeholder="Where will the event take place?" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="event-category">Category</label>
+                            <select id="event-category" class="form-control" required>
+                                <option value="education">Education</option>
+                                <option value="environment">Environment</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="community">Community</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Volunteer Roles</label>
+                            <div id="roles-container">
+                                <div class="role-entry">
+                                    <input type="text" placeholder="Role name" class="form-control role-name" required>
+                                    <input type="number" placeholder="Capacity" min="1" class="form-control role-capacity" required>
+                                    <button type="button" class="btn btn-danger remove-role"><i class="fas fa-times"></i></button>
+                                </div>
+                            </div>
+                            <button type="button" id="add-role" class="btn btn-outline mt-2"><i class="fas fa-plus"></i> Add Role</button>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">Create Event</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>VolunteerHub</h3>
+                    <p>Connecting volunteers with meaningful opportunities to make a difference in communities worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-tab="events">Browse Events</a></li>
+                        <li><a href="#" data-tab="create-event">Create Event</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@volunteerhub.org</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Community St, City, State</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 VolunteerHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample data for demonstration
+        const sampleEvents = [
+            {
+                id: 1,
+                title: "Community Park Cleanup",
+                description: "Help us clean and maintain our local community park. We'll be picking up litter, planting flowers, and doing light maintenance work.",
+                event_date: "2023-12-15",
+                event_time: "09:00",
+                location: "Central Community Park",
+                category: "environment",
+                roles: [
+                    { name: "Cleanup Volunteer", capacity: 20, filled: 15 },
+                    { name: "Gardening Assistant", capacity: 10, filled: 8 },
+                    { name: "Event Coordinator", capacity: 3, filled: 2 }
+                ]
+            },
+            {
+                id: 2,
+                title: "After-School Tutoring Program",
+                description: "Volunteer to tutor elementary school students in reading and math. No prior teaching experience required - we provide training!",
+                event_date: "2023-12-20",
+                event_time: "15:30",
+                location: "Westside Elementary School",
+                category: "education",
+                roles: [
+                    { name: "Reading Tutor", capacity: 15, filled: 12 },
+                    { name: "Math Tutor", capacity: 15, filled: 10 },
+                    { name: "Program Assistant", capacity: 5, filled: 3 }
+                ]
+            },
+            {
+                id: 3,
+                title: "Food Bank Distribution",
+                description: "Help distribute food to families in need at our monthly food bank. Tasks include sorting, packing, and distributing food items.",
+                event_date: "2023-12-25",
+                event_time: "10:00",
+                location: "Community Center Downtown",
+                category: "community",
+                roles: [
+                    { name: "Food Sorter", capacity: 10, filled: 8 },
+                    { name: "Distribution Helper", capacity: 15, filled: 10 },
+                    { name: "Driver", capacity: 5, filled: 3 }
+                ]
+            }
+        ];
+
+        // DOM Elements
+        const tabs = document.querySelectorAll('.tab, .nav-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const eventsContainer = document.getElementById('events-container');
+        const mySignupsContainer = document.getElementById('my-signups-container');
+        const eventForm = document.getElementById('event-form');
+        const rolesContainer = document.getElementById('roles-container');
+        const addRoleBtn = document.getElementById('add-role');
+        const loginBtn = document.getElementById('login-btn');
+        const registerBtn = document.getElementById('register-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const userProfile = document.getElementById('user-profile');
+        const eventSearch = document.getElementById('event-search');
+        const categoryFilter = document.getElementById('category-filter');
+        const themeButtons = document.querySelectorAll('.theme-btn');
+
+        // Current user state
+        let currentUser = null;
+        let userSignups = [];
+
+        // Initialize the application
+        function init() {
+            displayEvents(sampleEvents);
+            setupEventListeners();
+            checkAuthStatus();
+        }
+
+        // Set up event listeners
+        function setupEventListeners() {
+            // Tab navigation
+            tabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const tabId = tab.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+
+            // Theme selection
+            themeButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const theme = btn.getAttribute('data-theme');
+                    document.body.className = theme;
+                });
+            });
+
+            // Event form
+            eventForm.addEventListener('submit', handleEventSubmit);
+            
+            // Role management
+            addRoleBtn.addEventListener('click', addRoleField);
+            
+            // Auth buttons
+            loginBtn.addEventListener('click', () => alert('Login functionality would be implemented here'));
+            registerBtn.addEventListener('click', () => alert('Registration functionality would be implemented here'));
+            logoutBtn.addEventListener('click', handleLogout);
+            
+            // Search and filter
+            eventSearch.addEventListener('input', filterEvents);
+            categoryFilter.addEventListener('change', filterEvents);
+            
+            // Remove role buttons (delegated event listener)
+            rolesContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('remove-role') || 
+                    e.target.parentElement.classList.contains('remove-role')) {
+                    const roleEntry = e.target.closest('.role-entry');
+                    if (rolesContainer.children.length > 1) {
+                        roleEntry.remove();
+                    }
+                }
+            });
+        }
+
+        // Switch between tabs
+        function switchTab(tabId) {
+            // Update active tab in navigation
+            tabs.forEach(tab => {
+                if (tab.getAttribute('data-tab') === tabId) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            
+            // Show active tab content
+            tabContents.forEach(content => {
+                if (content.id === tabId) {
+                    content.classList.add('active');
+                } else {
+                    content.classList.remove('active');
+                }
+            });
+            
+            // Load appropriate data
+            if (tabId === 'my-signups') {
+                loadUserSignups();
+            }
+        }
+
+        // Display events in the grid
+        function displayEvents(events) {
+            if (events.length === 0) {
+                eventsContainer.innerHTML = '<p class="text-center">No events found. Try adjusting your search criteria.</p>';
+                return;
+            }
+            
+            eventsContainer.innerHTML = events.map(event => `
+                <div class="event-card">
+                    <div class="event-header">
+                        <h3 class="event-title">${event.title}</h3>
+                        <div class="event-meta">
+                            <div><i class="fas fa-calendar"></i> ${formatDate(event.event_date)}</div>
+                            <div><i class="fas fa-clock"></i> ${event.event_time}</div>
+                            <div><i class="fas fa-map-marker-alt"></i> ${event.location}</div>
+                        </div>
+                    </div>
+                    <div class="event-body">
+                        <p class="event-description">${event.description}</p>
+                        <div class="event-roles">
+                            ${event.roles.map(role => `
+                                <div class="role-item">
+                                    <div class="role-info">
+                                        <div class="role-name">${role.name}</div>
+                                        <div class="role-capacity">${role.filled}/${role.capacity} filled</div>
+                                        <div class="capacity-bar">
+                                            <div class="capacity-fill" style="width: ${(role.filled / role.capacity) * 100}%"></div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" onclick="signUpForRole(${event.id}, '${role.name}')" 
+                                        ${role.filled >= role.capacity ? 'disabled' : ''}>
+                                        ${role.filled >= role.capacity ? 'Full' : 'Sign Up'}
+                                    </button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter events based on search and category
+        function filterEvents() {
+            const searchTerm = eventSearch.value.toLowerCase();
+            const category = categoryFilter.value;
+            
+            const filteredEvents = sampleEvents.filter(event => {
+                const matchesSearch = event.title.toLowerCase().includes(searchTerm) || 
+                                    event.description.toLowerCase().includes(searchTerm);
+                const matchesCategory = category === 'all' || event.category === category;
+                
+                return matchesSearch && matchesCategory;
+            });
+            
+            displayEvents(filteredEvents);
+        }
+
+        // Format date for display
+        function formatDate(dateString) {
+            const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // Add a new role field to the event form
+        function addRoleField() {
+            const roleEntry = document.createElement('div');
+            roleEntry.className = 'role-entry';
+            roleEntry.innerHTML = `
+                <input type="text" placeholder="Role name" class="form-control role-name">
+                <input type="number" placeholder="Capacity" min="1" class="form-control role-capacity">
+                <button type="button" class="btn btn-danger remove-role"><i class="fas fa-times"></i></button>
+            `;
+            rolesContainer.appendChild(roleEntry);
+        }
+
+        // Handle event form submission
+        function handleEventSubmit(e) {
+            e.preventDefault();
+            
+            if (!currentUser) {
+                alert('Please log in to create events');
+                return;
+            }
+            
+            // Collect role data
+            const roles = [];
+            const roleEntries = rolesContainer.querySelectorAll('.role-entry');
+            
+            roleEntries.forEach(entry => {
+                const name = entry.querySelector('.role-name').value;
+                const capacity = parseInt(entry.querySelector('.role-capacity').value);
+                
+                if (name && capacity) {
+                    roles.push({ name, capacity, filled: 0 });
+                }
+            });
+            
+            if (roles.length === 0) {
+                alert('Please add at least one volunteer role');
+                return;
+            }
+            
+            // Create new event object
+            const newEvent = {
+                id: sampleEvents.length + 1,
+                title: document.getElementById('event-title').value,
+                description: document.getElementById('event-description').value,
+                event_date: document.getElementById('event-date').value,
+                event_time: document.getElementById('event-time').value,
+                location: document.getElementById('event-location').value,
+                category: document.getElementById('event-category').value,
+                roles: roles
+            };
+            
+            // Add to sample events (in a real app, this would be sent to the server)
+            sampleEvents.push(newEvent);
+            
+            // Reset form
+            eventForm.reset();
+            rolesContainer.innerHTML = `
+                <div class="role-entry">
+                    <input type="text" placeholder="Role name" class="form-control role-name">
+                    <input type="number" placeholder="Capacity" min="1" class="form-control role-capacity">
+                    <button type="button" class="btn btn-danger remove-role"><i class="fas fa-times"></i></button>
+                </div>
+            `;
+            
+            // Switch to events tab and show success message
+            switchTab('events');
+            filterEvents(); // Refresh the events display
+            alert('Event created successfully!');
+        }
+
+        // Sign up for a volunteer role
+        function signUpForRole(eventId, roleName) {
+            if (!currentUser) {
+                alert('Please log in to sign up for volunteer roles');
+                return;
+            }
+            
+            const event = sampleEvents.find(e => e.id === eventId);
+            const role = event.roles.find(r => r.name === roleName);
+            
+            if (role.filled < role.capacity) {
+                // Check if user is already signed up for this role
+                const existingSignup = userSignups.find(s => 
+                    s.eventId === eventId && s.roleName === roleName);
+                
+                if (existingSignup) {
+                    alert('You are already signed up for this role');
+                    return;
+                }
+                
+                // Add to user's signups
+                userSignups.push({
+                    eventId,
+                    eventTitle: event.title,
+                    roleName,
+                    date: event.event_date,
+                    time: event.event_time,
+                    location: event.location
+                });
+                
+                // Update the role's filled count
+                role.filled++;
+                
+                // Refresh events display
+                filterEvents();
+                
+                // Show success message
+                alert(`Successfully signed up for "${roleName}" at "${event.title}"`);
+            } else {
+                alert('This role is already full');
+            }
+        }
+
+        // Load user's signups
+        function loadUserSignups() {
+            if (userSignups.length === 0) {
+                mySignupsContainer.innerHTML = `
+                    <div class="text-center">
+                        <p>You haven't signed up for any volunteer events yet.</p>
+                        <button class="btn btn-primary mt-2" data-tab="events">Browse Events</button>
+                    </div>
+                `;
+                
+                // Add event listener to the button
+                const browseBtn = mySignupsContainer.querySelector('button');
+                browseBtn.addEventListener('click', () => switchTab('events'));
+                return;
+            }
+            
+            mySignupsContainer.innerHTML = userSignups.map(signup => `
+                <div class="signup-card">
+                    <div class="signup-info">
+                        <h3>${signup.eventTitle}</h3>
+                        <div class="signup-meta">
+                            <div><i class="fas fa-calendar"></i> ${formatDate(signup.date)}</div>
+                            <div><i class="fas fa-clock"></i> ${signup.time}</div>
+                            <div><i class="fas fa-map-marker-alt"></i> ${signup.location}</div>
+                        </div>
+                    </div>
+                    <div class="signup-actions">
+                        <div class="signup-role">${signup.roleName}</div>
+                        <button class="btn btn-danger" onclick="cancelSignup(${signup.eventId}, '${signup.roleName}')">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Cancel a signup
+        function cancelSignup(eventId, roleName) {
+            if (!confirm('Are you sure you want to cancel this signup?')) {
+                return;
+            }
+
+            const signupIndex = userSignups.findIndex(s => 
+                s.eventId === eventId && s.roleName === roleName);
+            
+            if (signupIndex === -1) return;
+
+            const event = sampleEvents.find(e => e.id === eventId);
+            const role = event.roles.find(r => r.name === roleName);
+            
+            // Update the role's filled count
+            if (role.filled > 0) {
+                role.filled--;
+            }
+            
+            // Remove from user's signups
+            userSignups.splice(signupIndex, 1);
+            
+            // Refresh displays
+            loadUserSignups();
+            filterEvents();
+            
+            alert('Signup cancelled successfully');
+        }
+
+        // Check authentication status (demo implementation)
+        function checkAuthStatus() {
+            // For demo purposes, we'll randomly assign a user
+            const isLoggedIn = Math.random() > 0.5;
+            
+            if (isLoggedIn) {
+                currentUser = {
+                    id: 1,
+                    name: 'Demo User',
+                    email: 'demo@example.com',
+                    type: 'volunteer'
+                };
+                
+                document.getElementById('username').textContent = currentUser.name;
+                loginBtn.classList.add('hidden');
+                registerBtn.classList.add('hidden');
+                userProfile.classList.remove('hidden');
+            }
+        }
+
+        // Handle user logout
+        function handleLogout() {
+            currentUser = null;
+            userSignups = [];
+            
+            loginBtn.classList.remove('hidden');
+            registerBtn.classList.remove('hidden');
+            userProfile.classList.add('hidden');
+            
+            alert('You have been logged out');
+        }
+
+        // Initialize the application when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

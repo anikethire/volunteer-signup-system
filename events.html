@@ -1,0 +1,49 @@
+<!-- frontend/events.html -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Volunteer Signup — Events</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <div class="logo">VS</div>
+        <div>
+          <h1>Events</h1>
+          <div class="small">Browse upcoming events and sign up</div>
+        </div>
+      </div>
+      <div>
+        <button class="btn" onclick="location.href='index.html'">Home</button>
+        <button class="btn" onclick="location.href='availability.html'">My Availability</button>
+      </div>
+    </div>
+
+    <div id="eventsGrid" class="grid"></div>
+
+    <div style="margin-top:20px" class="small">Tip: Login to sign up. Teachers must set availability first.</div>
+  </div>
+
+  <div id="signupModal" class="modal" style="display:none">
+    <div class="modal-inner">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3>Sign up</h3>
+        <button class="close" onclick="closeSignupModal()">✕</button>
+      </div>
+      <div style="margin-top:12px">
+        <div id="signupMsg"></div>
+        <div style="margin-top:8px">
+          <button class="btn" id="confirmSignupBtn">Confirm Signup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/events.js"></script>
+</body>
+</html>
+
